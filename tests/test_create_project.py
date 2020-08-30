@@ -3,7 +3,7 @@ import time
 import pathlib
 import os
 
-import kaggle_launcher.launch_core as lc
+from kaggle_launcher import launch_core as lc
 
 class TestCreateProject(unittest.TestCase):
     def test_create_file(self):

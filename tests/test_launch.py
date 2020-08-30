@@ -1,26 +1,23 @@
-import unittest
 import time
 import pathlib
 import os
+import unittest
 
 import kaggle_launcher as kl
-#import tests.return_comp_list as rcl
 
 class Testlaunch(unittest.TestCase):
     def test_choise_competition_normal(self):
-
-        ###TODO###
-        #insert patch 
-        #https://docs.python.org/ja/3/library/unittest.html
-
-        #kl.choise_competition_normal(10)
-        #self.assertTrue(file_path_actual.exists())
+        actual = kl.valid_choice("3", 10)
+        self.assertEqual(actual, 3)
 
     def test_choise_competition_entered_none(self):
-        pass
+        actual = kl.valid_choice("", 10)
+        self.assertEqual(actual, -1)
         
     def test_choise_competition_entered_exit(self):
-        pass
+        actual = kl.valid_choice("Exit", 10)
+        self.assertEqual(actual, -2)
 
     def test_choise_competition_out_of_range(self):
-        pass
+        actual = kl.valid_choice("11", 10)
+        self.assertEqual(actual, -3)

@@ -15,20 +15,14 @@ class TestCreateProject(unittest.TestCase):
         file_path_actual = pathlib.Path(root_path + "/" + file_path)
         self.assertTrue(file_path_actual.exists())
 
-    #def test_create_project(self):
-    #    root_path = "./tests/work/test_create_project"
-    #    gitignore_path_str = root_path + "/" + ".gitignore"
-    #    README_path_str = root_path + "/" + "README.md"
+    def test_git_init_project(self):
+        root_path = "./tests/work"
+        kl.git_init_project(root_path)
+        file_list = os.listdir(root_path)
+        actual = ".git" in file_list
+        self.assertTrue(actual)
 
-    #    kl.create_project(root_path)
-
-    #    actual_gitignore = pathlib.Path(gitignore_path_str).exists()
-    #    actual_README = pathlib.Path(README_path_str).exists()
-
-    #    actual = actual_gitignore and actual_README
-    #    self.assertTrue(actual)
-
-    def test_create_file_false(self):
+    def test_create_file_already_exists(self):
         """test create_file_false case when already file exists.
         """
         root_path = "./tests/work"

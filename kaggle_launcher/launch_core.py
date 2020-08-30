@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-"""
+"""Core functions.
 """
 
-import kaggle_launcher.KaggleApi_extended as kae
-import kaggle_launcher.create_project as cp
+from .KaggleApi_extended import KaggleApi_extended  # as kae
+from .create_project import *
 import re
 
 
@@ -12,7 +12,7 @@ def authenticate():
 
     This function authenticate your kaggle account.
     Raises OSError when kaggle.json not found or no environment method.
-    
+
     --------
 
     Args:
@@ -23,11 +23,12 @@ def authenticate():
     """
 
     try:
-        api = kae.KaggleApi_extended()
+        api = KaggleApi_extended()
         api.authenticate()
     except OSError as e:
         print(e)
     return api
+
 
 def show_and_get_competitions_list(api):
     """Show and return kaggle competitions.
@@ -41,10 +42,11 @@ def show_and_get_competitions_list(api):
 
     Return:
         competitions(List(kaggle_models_extended.Competition)): list of kaggle competitions.
-        
+
     """
     competitions = api.competitions_list_cli()
     return competitions
+
 
 def valid_choice(choice, competition_numbers):
     """Choise competition number.
@@ -74,13 +76,14 @@ def valid_choice(choice, competition_numbers):
         print("Please input number.")
         result = -1
         return result
-    elif int(choice) not in range(1, competition_numbers):
+    elif int(choice) not in range(0, competition_numbers):
         print("Your entered number is out of range of competitions.")
         result = -3
         return result
     else:
         result = int(choice)
         return result
+
 
 def input_competition_number():
     """Receive standard input for competition choice.
@@ -121,17 +124,8 @@ def launch():
     choice = input_competition_number()
     competition_number = valid_choice(choice, len(competitions))
     ref = getattr(competitions[competition_number], "ref")
-    
-    
-    cp.create_project(ref)
-    #for key, value in competitions[0].__dict__.items():
-    #    if key == "tags":
-    #        for tag in value:
-    #            print(value, type(value))
-    #            print(tag, type(tag))
-                #for item in tag.__dict__.items():
-                #    print(tag.__dict__.items(),":",tag, ':', type(tag))
-    
+
+    create_project(ref)
 
 
 if __name__ == "__main__":

@@ -6,9 +6,13 @@ import unittest
 import kaggle_launcher as kl
 
 class Testlaunch(unittest.TestCase):
-    def test_choise_competition_normal(self):
-        actual = kl.valid_choice("3", 10)
-        self.assertEqual(actual, 3)
+    def test_choise_competition_normal_low(self):
+        actual = kl.valid_choice("0", 10)
+        self.assertEqual(actual, 0)
+
+    def test_choise_competition_normal_up(self):
+        actual = kl.valid_choice("9", 10)
+        self.assertEqual(actual, 9)
 
     def test_choise_competition_entered_none(self):
         actual = kl.valid_choice("", 10)

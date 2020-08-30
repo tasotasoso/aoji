@@ -13,6 +13,9 @@ from kaggle.api.kaggle_api_extended import KaggleApi
 
 class KaggleApi_extended(KaggleApi):
 
+    #def authenticate(self):
+    #    authenticate()
+
     def print_table(self, items, fields):
         """ print a table of items with ref number, for a set of fields defined
 

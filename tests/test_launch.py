@@ -3,7 +3,7 @@ import pathlib
 import os
 import unittest
 
-from kaggle_launcher.utils import input as lc
+from utils import input as lc
 
 class Testlaunch(unittest.TestCase):
     def test_choise_competition_normal_low(self):

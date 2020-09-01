@@ -3,8 +3,8 @@
 """
 
 from .auth import *
-from kaggle_launcher.utils.input import *
-from kaggle_launcher.utils.create_project import *
+from utils.input import *
+from utils.create_project import *
 
 
 def launch():

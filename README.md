@@ -34,10 +34,12 @@ Aoji shows competitions got from kaggle api, and you can choose the number of co
 If you choose competition, aoji creates directory which name is competition name.
 For example:
 You choise "TITANIC",
+<pre>
     TITANIC
       ├─.git
       ├─.gitignore (empty)
       └─README.md  (empty)
+</pre>
 
 # Note
 

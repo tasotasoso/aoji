@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="aoji",
-    version="0.1.2",
+    version="1.0.0",
     description="Aoji supports createing your local git project for kaggle.",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",

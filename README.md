@@ -36,6 +36,7 @@ If you choose competition, aoji creates directory which name is competition name
 <pre>
 # For example:
 # You choise "TITANIC",
+
     TITANIC
       ├─.git
       ├─.gitignore (empty)
